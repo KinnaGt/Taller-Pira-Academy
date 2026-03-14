@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8505879166246377760}
   - component: {fileID: 4214782185004825799}
-  - component: {fileID: 6904147598938205354}
   - component: {fileID: 210438975674112252}
+  - component: {fileID: 6904147598938205354}
   m_Layer: 7
   m_Name: Slime
   m_TagString: Untagged
@@ -83,26 +83,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.7098808, y: 0.5648246}
   m_EdgeRadius: 0
---- !u!114 &6904147598938205354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145740422398196731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db06fb0110e54de469d68e670cc49eb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointA: {fileID: 4929065211597707074}
-  pointB: {fileID: 5630338821161356178}
-  speed: 3
-  waitTimeAtEdge: 0.5
-  threshold: 0.2
-  squashX: 0.6
-  stretchY: 1.3
-  squashDuration: 0.15
 --- !u!50 &210438975674112252
 Rigidbody2D:
   serializedVersion: 5
@@ -130,6 +110,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6904147598938205354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145740422398196731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db06fb0110e54de469d68e670cc49eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointA: {fileID: 4929065211597707074}
+  pointB: {fileID: 5630338821161356178}
+  speed: 3
+  waitTimeAtEdge: 0.5
+  threshold: 0.2
+  squashX: 0.6
+  stretchY: 1.3
+  squashDuration: 0.15
 --- !u!1 &3195435361054122500
 GameObject:
   m_ObjectHideFlags: 0

@@ -182,8 +182,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5247403014186224584}
   - component: {fileID: 2121911195028786404}
-  - component: {fileID: 881034987956709091}
   - component: {fileID: 6554403251875460625}
+  - component: {fileID: 881034987956709091}
   m_Layer: 7
   m_Name: Bee
   m_TagString: Untagged
@@ -236,23 +236,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!114 &881034987956709091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6070993040495753088}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db06fb0110e54de469d68e670cc49eb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointA: {fileID: 5449316358353220911}
-  pointB: {fileID: 6991669820977811626}
-  speed: 3.5
-  waitTimeAtEdge: 1
-  threshold: 0.2
 --- !u!61 &6554403251875460625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -299,3 +282,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &881034987956709091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6070993040495753088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db06fb0110e54de469d68e670cc49eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointA: {fileID: 5449316358353220911}
+  pointB: {fileID: 6991669820977811626}
+  speed: 3.5
+  waitTimeAtEdge: 1
+  threshold: 0.2
+  squashX: 0.6
+  stretchY: 1.3
+  squashDuration: 0.15

@@ -27,9 +27,6 @@ public class Trampoline : MonoBehaviour
     [SerializeField]
     private GameObject bounceVFXPrefab;
 
-    [SerializeField]
-    private AudioSource audioSource;
-
     private SpriteRenderer _sr;
     private Coroutine _resetRoutine;
 
@@ -56,9 +53,6 @@ public class Trampoline : MonoBehaviour
 
                 if (bounceVFXPrefab != null)
                     Instantiate(bounceVFXPrefab, transform.position, Quaternion.identity);
-
-                if (audioSource != null)
-                    audioSource.Play();
             }
         }
     }

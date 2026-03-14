@@ -147,12 +147,11 @@ MonoBehaviour:
   moveSpeed: 8
   movementSmoothing: 0.05
   dashBurst: 5
-  jumpSpeed: 16
+  jumpForce: 8
   coyoteTime: 0.15
   jumpBufferTime: 0.1
-  fallMultiplier: 2
-  lowJumpMultiplier: 2
-  gravity: 40
+  fallExtraGravity: 2.5
+  lowJumpExtraGravity: 2
   ladderLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -172,7 +171,6 @@ MonoBehaviour:
     m_Bits: 2056
   groundCheck: {fileID: 7546485676725765413}
   groundCheckSize: {x: 0.8, y: 0.05}
-  skinWidth: 0.017
   showDebugGizmos: 1
   _anim: {fileID: 4886924099314343040}
 --- !u!114 &7202092061815556004
