@@ -5,7 +5,7 @@
 
 ---
 
-## 📋 ¿De qué trata este proyecto?
+##  ¿De qué trata este proyecto?
 
 Este repositorio es la base de trabajo del taller. Contiene un juego 2D de plataformas completo y funcional hecho en Unity donde vas a:
 
@@ -18,7 +18,7 @@ Este repositorio es la base de trabajo del taller. Contiene un juego 2D de plata
 
 ---
 
-## 🚀 Cómo arrancar desde cero
+##  Cómo arrancar desde cero
 
 ### Paso 1 — Descargar el proyecto
 
