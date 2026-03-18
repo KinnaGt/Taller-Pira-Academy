@@ -59,14 +59,15 @@ public class BombSpawner : MonoBehaviour, IInteractable
     [SerializeField]
     private float _vfxDuration = 0.7f;
 
+    [Header("Event Channel")]
     [SerializeField]
-    private AudioSource _audioSource;
+    private AudioEventChannelSO _sfxChannel;
 
     [SerializeField]
-    private AudioClip _leverOnClip;
+    private AudioConfigSO _leverOnClip;
 
     [SerializeField]
-    private AudioClip _leverOffClip;
+    private AudioConfigSO _leverOffClip;
 
     private Coroutine _vfxRoutine;
     private Vector3 _vfxRestPosition;
@@ -83,6 +84,15 @@ public class BombSpawner : MonoBehaviour, IInteractable
             maxSize: _maxSize
         );
 
+        if (_spawnPoint == null)
+        {
+            Debug.LogError($"[BombSpawner] No se asignó un punto de spawn en {gameObject.name}.");
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            return;
+        }
+
         if (_leverVfxRenderer != null)
             _vfxRestPosition = _leverVfxRenderer.transform.localPosition;
     }
@@ -98,19 +108,22 @@ public class BombSpawner : MonoBehaviour, IInteractable
         _isOn = !_isOn;
         UpdateLeverVisuals();
         PlayLeverFeedback();
+
+        if (_isOn)
+        {
+            _leverOnClip?.Play(_sfxChannel);
+        }
+        else
+        {
+            _leverOffClip?.Play(_sfxChannel);
+        }
     }
 
     private void PlayLeverFeedback()
     {
-        if (_audioSource != null)
-        {
-            AudioClip clip = _isOn ? _leverOnClip : _leverOffClip;
-            if (clip != null)
-                _audioSource.PlayOneShot(clip);
-        }
-
         if (_vfxRoutine != null)
             StopCoroutine(_vfxRoutine);
+
         if (_leverVfxRenderer != null)
             _vfxRoutine = StartCoroutine(LeverVfxRoutine());
     }
@@ -121,8 +134,10 @@ public class BombSpawner : MonoBehaviour, IInteractable
         _leverVfxRenderer.color = _isOn
             ? new Color(0.3f, 1f, 0.3f, 1f)
             : new Color(1f, 0.3f, 0.3f, 1f);
+
         _leverVfxRenderer.enabled = true;
         _leverVfxRenderer.transform.localPosition = _vfxRestPosition;
+
         Vector3 targetPos = _vfxRestPosition + Vector3.up * _vfxFloatDistance;
         float elapsed = 0f;
 
@@ -136,6 +151,7 @@ public class BombSpawner : MonoBehaviour, IInteractable
                 targetPos,
                 Mathf.SmoothStep(0f, 1f, t)
             );
+
             float alpha = t < 0.5f ? 1f : 1f - ((t - 0.5f) / 0.5f);
             Color c = _leverVfxRenderer.color;
             c.a = alpha;
@@ -169,6 +185,7 @@ public class BombSpawner : MonoBehaviour, IInteractable
     {
         if (_rangeDetector != null && !_rangeDetector.IsPlayerInRange)
             return;
+
         ToggleLever();
     }
 

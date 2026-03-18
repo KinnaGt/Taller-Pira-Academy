@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointA: {fileID: 5449316358353220911}
-  pointB: {fileID: 6991669820977811626}
+  pointB: {fileID: 0}
   speed: 3.5
   waitTimeAtEdge: 1
   threshold: 0.2

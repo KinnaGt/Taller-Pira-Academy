@@ -48,33 +48,11 @@ public class CoinPainterTool : EditorWindow
         _coinPrefab = (GameObject)
             EditorGUILayout.ObjectField("Coin Prefab", _coinPrefab, typeof(GameObject), false);
 
-        EditorGUILayout.Space(4);
-        EditorGUILayout.LabelField("Grid", EditorStyles.boldLabel);
-        _gridSize = Mathf.Max(0.25f, EditorGUILayout.FloatField("Cell Size", _gridSize));
-        _gridZ = EditorGUILayout.FloatField("Z Position", _gridZ);
-
-        EditorGUILayout.Space(4);
-        _parent = (Transform)
-            EditorGUILayout.ObjectField("Parent (opcional)", _parent, typeof(Transform), true);
-
-        EditorGUILayout.Space(8);
-        EditorGUILayout.LabelField("Modo", EditorStyles.boldLabel);
-
-        EditorGUILayout.BeginHorizontal();
-        GUI.backgroundColor = _mode == PaintMode.Paint ? Color.yellow : Color.white;
-        if (GUILayout.Button("✏  Pintar"))
-            _mode = PaintMode.Paint;
-        GUI.backgroundColor = _mode == PaintMode.Erase ? new Color(1f, 0.4f, 0.4f) : Color.white;
-        if (GUILayout.Button("✕  Borrar"))
-            _mode = PaintMode.Erase;
-        GUI.backgroundColor = Color.white;
-        EditorGUILayout.EndHorizontal();
-
         // ── Toggle activación ─────────────────────────────────────────────────
         EditorGUILayout.Space(8);
         bool wantActive = GUILayout.Toggle(
             _isActive,
-            _isActive ? "⬛  Tool ACTIVA  (click en SceneView)" : "▷  Activar Tool",
+            _isActive ? "Tool ACTIVA  (click en SceneView)" : "▷  Activar Tool",
             "Button",
             GUILayout.Height(32)
         );
@@ -85,7 +63,7 @@ public class CoinPainterTool : EditorWindow
         if (_isActive)
         {
             EditorGUILayout.HelpBox(
-                "LMB: pintar/borrar  |  Shift+LMB: modo opuesto temporal  |  Esc: desactivar",
+                "LMB: Pintar  |  Shift+LMB: Borrar  |  Esc: desactivar",
                 MessageType.Info
             );
         }
@@ -97,7 +75,7 @@ public class CoinPainterTool : EditorWindow
         GUI.enabled = _placedCoins.Count > 0;
         if (GUILayout.Button("Undo todo"))
             UndoAll();
-        if (GUILayout.Button("Limpiar registro"))
+        if (GUILayout.Button("Añadir"))
             _placedCoins.Clear();
         GUI.enabled = true;
 

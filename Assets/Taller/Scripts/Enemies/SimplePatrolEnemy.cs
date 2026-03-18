@@ -56,9 +56,12 @@ public class SimplePatrolEnemy : MonoBehaviour
         if (pointA == null || pointB == null)
         {
             Debug.LogError(
-                $"[SimplePatrolEnemy] Faltan puntos de ruta en {gameObject.name}. Desactivando script."
+                $"Un error en ingles muy largo de que hiciste mal las cosas\n Iñaki te lo traduce en criollo, faltan puntos de ruta en {gameObject.name}. Desactivando script."
             );
-            enabled = false;
+
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
             return;
         }
 

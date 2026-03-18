@@ -53,6 +53,13 @@ public class Bomb : MonoBehaviour
             _spriteRenderer = GetComponent<SpriteRenderer>();
 
         TryGetComponent(out _rb);
+
+        if (_shockwaveVFX == null)
+        {
+            Debug.LogWarning(
+                $"[{nameof(Bomb)}] No se asignó ShockwaveVFX en {gameObject.name}. Se omitirá el efecto de explosión."
+            );
+        }
     }
 
     public void SetPool(IObjectPool<Bomb> pool) => _pool = pool;
@@ -156,6 +163,9 @@ public class Bomb : MonoBehaviour
         }
         else
         {
+            Debug.LogWarning(
+                $"[{nameof(Bomb)}] No se asignó ShockwaveVFX en {gameObject.name}. Se omitirá el efecto de explosión."
+            );
             ReturnToPool();
         }
     }
@@ -163,7 +173,10 @@ public class Bomb : MonoBehaviour
     private void ReturnToPool()
     {
         if (_pool != null)
+        {
             _pool.Release(this);
+            _spriteRenderer.enabled = true;
+        }
         else
             Destroy(gameObject);
     }

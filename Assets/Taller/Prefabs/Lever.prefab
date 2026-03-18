@@ -309,7 +309,7 @@ MonoBehaviour:
   _isOn: 1
   _rangeDetector: {fileID: 8586288821883733530}
   _bombPrefab: {fileID: 6949694169355783577, guid: bd7904a0aca920d478f890136d976b7f, type: 3}
-  _spawnPoint: {fileID: 3047543468821379573}
+  _spawnPoint: {fileID: 0}
   _spawnInterval: 5
   _initialDelay: 0
   _defaultCapacity: 3
@@ -319,9 +319,9 @@ MonoBehaviour:
   _vfxOffSprite: {fileID: 5584510165694236758, guid: 28d7f296c7b603b44aded0bba431adb3, type: 3}
   _vfxFloatDistance: 1.2
   _vfxDuration: 0.7
-  _audioSource: {fileID: 0}
-  _leverOnClip: {fileID: 0}
-  _leverOffClip: {fileID: 0}
+  _sfxChannel: {fileID: 11400000, guid: 775a1a0b1fcb9d14691179c991b5feb3, type: 2}
+  _leverOnClip: {fileID: 11400000, guid: 4fa6fcb16ffc1b243a47e5afbe56e5f3, type: 2}
+  _leverOffClip: {fileID: 11400000, guid: 4fa6fcb16ffc1b243a47e5afbe56e5f3, type: 2}
 --- !u!61 &6429164107380618532
 BoxCollider2D:
   m_ObjectHideFlags: 0
